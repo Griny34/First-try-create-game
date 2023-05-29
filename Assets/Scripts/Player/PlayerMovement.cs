@@ -5,6 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    private const string IsRun = "IsRun";
+    private const string IsGrounded = "IsGrounded";
+    private const string Jump = "Jump";
+
     [SerializeField] private Animator _animator;
     [SerializeField] private float _speedMovement;
     [SerializeField] private float _jumpForce;
@@ -43,8 +47,8 @@ public class PlayerMovement : MonoBehaviour
     {
         _rigidbody2D.velocity = new Vector2(moveX * _speedMovement, _rigidbody2D.velocity.y);
 
-        _animator.SetBool("IsRun", moveX != 0);
-        _animator.SetBool("IsGrounded", _isGrounded);
+        _animator.SetBool(IsRun, moveX != 0);
+        _animator.SetBool(IsGrounded, _isGrounded);
     }
 
     public void CheckSide(float moveX)
@@ -57,13 +61,13 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = new Vector2(scaleX, transform.localScale.y);
     }
 
-    public void Jump()
+    public void JumpPlayer()
     {
         if (_isGrounded == false) return;
 
         _rigidbody2D.velocity = new Vector2(_speedMovement, 0);
         _rigidbody2D.AddForce(Vector2.up * _jumpForce);
-        _animator.SetTrigger("Jump");
+        _animator.SetTrigger(Jump);
     }
 
     private void CheckGround()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnerMissile : MonoBehaviour
 {
-    [SerializeField] private GameObject _missilePrefab;
+    [SerializeField] private MissileMovement _missilePrefab;
     [SerializeField] private Transform _positionPointSpawner;
     [SerializeField] private Transform _plaeyr;
 

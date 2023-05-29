@@ -20,6 +20,14 @@ public class BossMoveTowards : MonoBehaviour
         MoveTarget();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.TryGetComponent<MissileBoss>(out var missile) == true)
+        {
+            Destroy(collision.gameObject);
+        }
+    }
+
     private void MoveTarget()
     {
        transform.position = Vector3.MoveTowards(transform.position, _currentTarget, _speed * Time.deltaTime);
@@ -43,13 +51,5 @@ public class BossMoveTowards : MonoBehaviour
         }
 
         _currentTarget = _pointMoveTowards[_currentIndex].position;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.TryGetComponent<MissileBoss>(out var missile) == true)
-        {
-            Destroy(collision.gameObject);
-        }
     }
 }

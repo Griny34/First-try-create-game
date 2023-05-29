@@ -10,14 +10,26 @@ public class MissileBoss : MonoBehaviour
 
     private Rigidbody2D _rigidbody2D;
     private Vector2 _velosity;
+    private float _lifeTime = 3;
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
+
     private void Start()
     {
         Initialize();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.TryGetComponent<HealthPlayer>(out var health) == true)
+        {
+            health.Value -= _damage;
+
+            Destroy(gameObject);
+        }
     }
 
     private void Initialize()
@@ -34,16 +46,6 @@ public class MissileBoss : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, 0, rot + 180);
 
-        Destroy(gameObject, 3);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.TryGetComponent<HealthPlayer>(out var health) == true)
-        {
-            health.Value -= _damage;
-
-            Destroy(gameObject);
-        }
+        Destroy(gameObject, _lifeTime);
     }
 }

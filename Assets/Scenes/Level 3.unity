@@ -948,9 +948,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabs:
-  - {fileID: 3680786624167959021, guid: e549d6427d99a3f4faf94c494bb02565, type: 3}
-  - {fileID: 3359042380715113340, guid: 534543a184136594c9e749d53ecbb52a, type: 3}
-  - {fileID: 2210634114666855033, guid: 54db71547235743459b5ed284e2c4e51, type: 3}
+  - {fileID: 5376829429770122285, guid: e549d6427d99a3f4faf94c494bb02565, type: 3}
+  - {fileID: 114402966554678173, guid: 534543a184136594c9e749d53ecbb52a, type: 3}
+  - {fileID: 8055794897388843666, guid: 54db71547235743459b5ed284e2c4e51, type: 3}
   _positionPointsEvent: {fileID: 182954839}
 --- !u!61 &182954841
 BoxCollider2D:
@@ -4297,7 +4297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6512fb16979396d408bd52928ccd084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _missilePrefab: {fileID: 4180746780417249375, guid: f089b75f5c1e4eb489330dba22d4c5ed, type: 3}
+  _missilePrefab: {fileID: -463091934062748272, guid: f089b75f5c1e4eb489330dba22d4c5ed, type: 3}
   _positionPointSpawner: {fileID: 1711574739}
   _plaeyr: {fileID: 1220070666}
 --- !u!4 &1711574739
@@ -4646,9 +4646,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabs:
-  - {fileID: 3680786624167959021, guid: e549d6427d99a3f4faf94c494bb02565, type: 3}
-  - {fileID: 3359042380715113340, guid: 534543a184136594c9e749d53ecbb52a, type: 3}
-  - {fileID: 2210634114666855033, guid: 54db71547235743459b5ed284e2c4e51, type: 3}
+  - {fileID: 5376829429770122285, guid: e549d6427d99a3f4faf94c494bb02565, type: 3}
+  - {fileID: 114402966554678173, guid: 534543a184136594c9e749d53ecbb52a, type: 3}
+  - {fileID: 8055794897388843666, guid: 54db71547235743459b5ed284e2c4e51, type: 3}
   _positionPointsEvent: {fileID: 1884749608}
 --- !u!61 &1884749610
 BoxCollider2D:
@@ -5215,9 +5215,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabs:
-  - {fileID: 3680786624167959021, guid: e549d6427d99a3f4faf94c494bb02565, type: 3}
-  - {fileID: 3359042380715113340, guid: 534543a184136594c9e749d53ecbb52a, type: 3}
-  - {fileID: 2210634114666855033, guid: 54db71547235743459b5ed284e2c4e51, type: 3}
+  - {fileID: 5376829429770122285, guid: e549d6427d99a3f4faf94c494bb02565, type: 3}
+  - {fileID: 114402966554678173, guid: 534543a184136594c9e749d53ecbb52a, type: 3}
+  - {fileID: 8055794897388843666, guid: 54db71547235743459b5ed284e2c4e51, type: 3}
   _positionPointsEvent: {fileID: 2141746176}
 --- !u!61 &2141746178
 BoxCollider2D:

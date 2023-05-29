@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,11 +30,8 @@ public class HealthBoss : MonoBehaviour
         }
     }
 
-    public delegate void ChangeHealth(int value, int maxValue);
-    public event ChangeHealth OnChangeHealthBoss;
-
-    public delegate void ZeroHealth();
-    public event ZeroHealth OnZeroHealthBoss;
+    public event Action <int,int> OnChangeHealthBoss;
+    public event Action OnZeroHealthBoss;
 
     private void Awake()
     {

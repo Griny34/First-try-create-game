@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -29,11 +30,8 @@ public class Health : MonoBehaviour
         }
     }
 
-    public delegate void ChangeHealth(int value, int maxValue);
-    public event ChangeHealth OnChangeHealth;
-
-    public delegate void ZeroHealth();
-    public event ZeroHealth OnZeroHealth;
+    public event Action<int,int> OnChangeHealth;
+    public event Action OnZeroHealth;
 
     private void Awake()
     {

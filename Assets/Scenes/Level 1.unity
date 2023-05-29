@@ -1629,7 +1629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af30b9e7d595357449660ef5e20fdeff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 754175984}
+  _player: {fileID: 754175981}
   _orderInLayer: -10
 --- !u!82 &519420035
 AudioSource:
@@ -7738,7 +7738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6512fb16979396d408bd52928ccd084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _missilePrefab: {fileID: 4180746780417249375, guid: f089b75f5c1e4eb489330dba22d4c5ed, type: 3}
+  _missilePrefab: {fileID: -463091934062748272, guid: f089b75f5c1e4eb489330dba22d4c5ed, type: 3}
   _positionPointSpawner: {fileID: 1793890056}
   _plaeyr: {fileID: 754175984}
 --- !u!1 &1808987080

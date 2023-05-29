@@ -3565,7 +3565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10351d5dd0da67b4282247b176ca3c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightPoint: {fileID: 2059243097}
+  _sightPoint: {fileID: 2059243097}
   _prefabMissile: {fileID: 7220784312704440555, guid: 8192d14401ab81943943ef8e117805ec, type: 3}
   _positionPointSpawner: {fileID: 1303462663}
 --- !u!4 &1303462663
@@ -3742,7 +3742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10351d5dd0da67b4282247b176ca3c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightPoint: {fileID: 1055972363}
+  _sightPoint: {fileID: 1055972363}
   _prefabMissile: {fileID: 7220784312704440555, guid: 8192d14401ab81943943ef8e117805ec, type: 3}
   _positionPointSpawner: {fileID: 1336766505}
 --- !u!4 &1336766505
@@ -4408,7 +4408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af30b9e7d595357449660ef5e20fdeff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 969446805}
+  _player: {fileID: 969446802}
   _orderInLayer: -10
 --- !u!1 &1653699319
 GameObject:
@@ -4476,7 +4476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6512fb16979396d408bd52928ccd084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _missilePrefab: {fileID: 4180746780417249375, guid: f089b75f5c1e4eb489330dba22d4c5ed, type: 3}
+  _missilePrefab: {fileID: -463091934062748272, guid: f089b75f5c1e4eb489330dba22d4c5ed, type: 3}
   _positionPointSpawner: {fileID: 1666530291}
   _plaeyr: {fileID: 969446805}
 --- !u!4 &1666530291
@@ -7272,7 +7272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10351d5dd0da67b4282247b176ca3c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightPoint: {fileID: 10258846}
+  _sightPoint: {fileID: 10258846}
   _prefabMissile: {fileID: 7220784312704440555, guid: 8192d14401ab81943943ef8e117805ec, type: 3}
   _positionPointSpawner: {fileID: 2040400316}
 --- !u!4 &2040400316

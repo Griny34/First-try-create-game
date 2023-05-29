@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent (typeof(Animator))]
 public class RangedEnemy : MonoBehaviour
 {
+    private const string IsRun = "IsRun";
+    private const string IsShoot = "IsShoot";
+    private const string Shoot = "Shoot";
+
     [SerializeField] private float _speed;
     [SerializeField] private Transform[] _pointsMove;
     [SerializeField] private Animator _animator;
@@ -41,22 +46,25 @@ public class RangedEnemy : MonoBehaviour
 
     private void Update()
     {
+        WorkStateMachine();
+    }
+
+    private void WorkStateMachine()
+    {
         switch (_state)
         {
             default:
             case State.MoveTowards:
-                MoveTarget();
+                MoveTarget(_currentTarget);
                 CheckTarget();
-                _animator.SetBool("isRun", _isRun);
+                _animator.SetBool(IsRun, _isRun);
                 FindPlayer();
                 break;
             case State.ChaseTarget:
 
                 if (PlayerMovement.Instance != null)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, PlayerMovement.Instance.Transform.position, _speed * Time.deltaTime);
-                    Vector2 moveX = PlayerMovement.Instance.Transform.position - transform.position;
-                    CheckSide(moveX.x);
+                    MoveTarget(PlayerMovement.Instance.Transform.position);
                     ReturningPatrol();
                     Attack();
                 }
@@ -64,25 +72,28 @@ public class RangedEnemy : MonoBehaviour
                 {
                     _state = State.MoveTowards;
                 }
+
                 break;
             case State.AttackPlayer:
-                if(PlayerMovement.Instance != null)
+
+                if (PlayerMovement.Instance != null)
                 {
-                    Shoot();
+                    ShootMissile();
                     LossPurpose();
                 }
                 else
                 {
                     _state = State.MoveTowards;
                 }
+
                 break;
         }
     }
 
-    private void MoveTarget()
+    private void MoveTarget(Vector3 target)
     {
-        transform.position = Vector3.MoveTowards(transform.position, _currentTarget, _speed * Time.deltaTime);
-        Vector2 moveX = _currentTarget - transform.position;
+        transform.position = Vector3.MoveTowards(transform.position, target, _speed * Time.deltaTime);
+        Vector2 moveX = target - transform.position;
         CheckSide(moveX.x);
     }
 
@@ -142,9 +153,9 @@ public class RangedEnemy : MonoBehaviour
     {
         float distance = 5;
 
-        if((Vector3.Distance(transform.position, PlayerMovement.Instance.Transform.position) < distance))
+        if(Vector3.Distance(transform.position, PlayerMovement.Instance.Transform.position) < distance)
         {
-            _animator.SetBool("isRun", false);
+            _animator.SetBool(IsRun, false);
             _state = State.AttackPlayer;
         } 
     }
@@ -155,22 +166,22 @@ public class RangedEnemy : MonoBehaviour
 
         if (Vector3.Distance(transform.position, PlayerMovement.Instance.Transform.position) > distance)
         {
-            _animator.SetBool("isShoot", false);
-            _animator.SetBool("isRun", true);
+            _animator.SetBool(IsShoot, false);
+            _animator.SetBool(IsRun, true);
             _state = State.ChaseTarget;
         }
     }
 
-    private void Shoot()
+    private void ShootMissile()
     {
         if (Time.time > _timeAttack)
         {
-            _animator.SetTrigger("Shoot");
+            _animator.SetTrigger(Shoot);
             _missileEnemy.Create();
 
-            float tamedelay = 1;
+            float timedelay = 1;
 
-            _timeAttack = Time.time + tamedelay;
+            _timeAttack = Time.time + timedelay;
         }
     }
 }

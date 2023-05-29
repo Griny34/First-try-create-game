@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,11 +29,9 @@ public class HealthPlayer : MonoBehaviour
         }
     }
 
-    public delegate void ChangeHealth(int value, int maxValue);
-    public event ChangeHealth OnChangeHealthPlayer;
+    public event Action<int,int> OnChangeHealthPlayer;
 
-    public delegate void ZeroHealth();
-    public event ZeroHealth OnZeroHealthPlayer;
+    public event Action OnZeroHealthPlayer;
 
     private void Awake()
     {

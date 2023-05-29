@@ -10,6 +10,7 @@ public class MissileMoveEnemy : MonoBehaviour
 
     private Rigidbody2D _rigidbody2D;
     private Vector2 _velosity;
+    private float _lifeTime = 3;
 
     public Vector3 Sight { get; set; }
 
@@ -20,6 +21,16 @@ public class MissileMoveEnemy : MonoBehaviour
     private void Start()
     {
         Launch();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.TryGetComponent<HealthPlayer>(out var health) == true)
+        {
+            health.Value -= _damage;
+
+            Destroy(gameObject);
+        }
     }
 
     public void Launch()
@@ -36,16 +47,6 @@ public class MissileMoveEnemy : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
 
-        Destroy(gameObject, 3);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.TryGetComponent<HealthPlayer>(out var health) == true)
-        {
-            health.Value -= _damage;
-
-            Destroy(gameObject);
-        }
+        Destroy(gameObject, _lifeTime);
     }
 }
